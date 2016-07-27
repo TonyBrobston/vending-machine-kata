@@ -1,4 +1,4 @@
-package domain;
+package com.vendingmachine.domain;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
-import static constants.Coins.*;
+import static com.vendingmachine.constants.Coins.*;
 
 @RunWith(DataProviderRunner.class)
 public class CoinTest {

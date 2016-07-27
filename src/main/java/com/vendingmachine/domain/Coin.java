@@ -1,9 +1,9 @@
-package domain;
+package com.vendingmachine.domain;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static constants.Coins.*;
+import static com.vendingmachine.constants.Coins.*;
 
 public class Coin {
     private Integer value = 0;

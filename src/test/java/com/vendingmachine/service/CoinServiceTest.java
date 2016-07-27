@@ -1,6 +1,6 @@
-package service;
+package com.vendingmachine.service;
 
-import domain.Coin;
+import com.vendingmachine.domain.Coin;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static constants.Coins.*;
+import static com.vendingmachine.constants.Coins.*;
 import static org.junit.Assert.assertEquals;
 
 public class CoinServiceTest {
@@ -87,9 +87,7 @@ public class CoinServiceTest {
 
     @Test
     public void shouldPrintInsertCoinIfNoCoinIsInserted() {
-        Coin none = new Coin().setValue(NULL);
-
-        new CoinService().insertCoin(none);
+        new CoinService();
 
         assertEquals("Insert coin\n", byteArrayOutputStream.toString());
     }

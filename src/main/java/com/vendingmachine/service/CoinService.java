@@ -1,16 +1,16 @@
-package service;
+package com.vendingmachine.service;
 
-import domain.Coin;
+import com.vendingmachine.domain.Coin;
 
 public class CoinService {
-    public void CoinService() {
-        System.out.println("Insert coin");
-    }
-
     private Integer runningTotal = 0;
 
     public void insertCoin(Coin coin) {
         System.out.println(determineConsoleOutput(coin));
+    }
+
+    public CoinService() {
+        System.out.println("Insert coin");
     }
 
     private String determineConsoleOutput(Coin coin) {
@@ -18,8 +18,6 @@ public class CoinService {
         if (coin.isValid()) {
             runningTotal += coinValue;
             return "Current amount: " + runningTotal;
-        } else if (new Integer(0).equals(coinValue)) {
-            return "Insert coin";
         } else {
             return "Coin return: " + coinValue;
         }

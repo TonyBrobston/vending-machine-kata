@@ -1,4 +1,4 @@
-package constants;
+package com.vendingmachine.constants;
 
 public final class Coins {
     public static final Integer NULL = 0;
