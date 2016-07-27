@@ -30,7 +30,7 @@ public class CoinServiceTest {
 
         new CoinService().insertCoin(nickel);
 
-        assertEquals("Current amount: 5\n", byteArrayOutputStream.toString());
+        assertEquals("Insert coin\nCurrent amount: 5\nInsert coin\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -43,7 +43,7 @@ public class CoinServiceTest {
         coinService.insertCoin(nickel);
         coinService.insertCoin(quarter);
 
-        assertEquals("Current amount: 5\nCurrent amount: 10\nCurrent amount: 35\n", byteArrayOutputStream.toString());
+        assertEquals("Insert coin\nCurrent amount: 5\nInsert coin\nCurrent amount: 10\nInsert coin\nCurrent amount: 35\nInsert coin\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -55,7 +55,7 @@ public class CoinServiceTest {
         coinService.insertCoin(nickel);
         coinService.insertCoin(penny);
 
-        assertEquals("Current amount: 5\nCoin return: 1\n", byteArrayOutputStream.toString());
+        assertEquals("Insert coin\nCurrent amount: 5\nInsert coin\nCoin return: 1\nInsert coin\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -64,7 +64,7 @@ public class CoinServiceTest {
 
         new CoinService().insertCoin(quarter);
 
-        assertEquals("Current amount: 25\n", byteArrayOutputStream.toString());
+        assertEquals("Insert coin\nCurrent amount: 25\nInsert coin\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class CoinServiceTest {
 
         new CoinService().insertCoin(penny);
 
-        assertEquals("Coin return: 1\n", byteArrayOutputStream.toString());
+        assertEquals("Insert coin\nCoin return: 1\nInsert coin\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -82,7 +82,7 @@ public class CoinServiceTest {
 
         new CoinService().insertCoin(halfDollar);
 
-        assertEquals("Coin return: 50\n", byteArrayOutputStream.toString());
+        assertEquals("Insert coin\nCoin return: 50\nInsert coin\n", byteArrayOutputStream.toString());
     }
 
     @Test

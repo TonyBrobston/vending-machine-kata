@@ -7,10 +7,15 @@ public class CoinService {
 
     public void insertCoin(Coin coin) {
         System.out.println(determineConsoleOutput(coin));
+        askForNextCoin();
     }
 
     public CoinService() {
-        System.out.println("Insert coin");
+        insertCoin();
+    }
+
+    private void insertCoin() {
+        askForNextCoin();
     }
 
     private String determineConsoleOutput(Coin coin) {
@@ -21,5 +26,9 @@ public class CoinService {
         } else {
             return "Coin return: " + coinValue;
         }
+    }
+
+    private void askForNextCoin() {
+        System.out.println("Insert coin");
     }
 }
