@@ -14,13 +14,14 @@ public class CoinService {
     }
 
     private String determineConsoleOutput(Coin coin) {
+        Integer coinValue = coin.getValue();
         if (coin.isValid()) {
-            runningTotal += coin.getValue();
+            runningTotal += coinValue;
             return "Current amount: " + runningTotal;
-        } else if (coin.getValue() == null) {
+        } else if (new Integer(0).equals(coinValue)) {
             return "Insert coin";
         } else {
-            return "Coin return: " + coin.getValue();
+            return "Coin return: " + coinValue;
         }
     }
 }

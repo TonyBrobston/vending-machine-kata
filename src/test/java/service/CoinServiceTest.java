@@ -78,7 +78,7 @@ public class CoinServiceTest {
 
     @Test
     public void shouldPrintCoinReturnFifty() {
-        Coin halfDollar = new Coin().setValue(50);
+        Coin halfDollar = new Coin().setValue(HALF_DOLLAR);
 
         new CoinService().insertCoin(halfDollar);
 
@@ -87,7 +87,7 @@ public class CoinServiceTest {
 
     @Test
     public void shouldPrintInsertCoinIfNoCoinIsInserted() {
-        Coin none = new Coin().setValue(null);
+        Coin none = new Coin().setValue(NULL);
 
         new CoinService().insertCoin(none);
 

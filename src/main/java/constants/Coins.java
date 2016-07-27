@@ -1,6 +1,7 @@
 package constants;
 
 public final class Coins {
+    public static final Integer NULL = 0;
     public static final Integer PENNY = 1;
     public static final Integer NICKEL = 5;
     public static final Integer DIME = 10;
