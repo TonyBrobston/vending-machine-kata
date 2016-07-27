@@ -83,4 +83,13 @@ public class CoinServiceTest {
 
         assertEquals("Coin return: 50\n", byteArrayOutputStream.toString());
     }
+
+    @Test
+    public void shouldPrintInsertCoinIfNoCoinIsInserted() {
+        Coin none = new Coin().setValue(null);
+
+        new CoinService().insertCoin(none);
+
+        assertEquals("Insert coin\n", byteArrayOutputStream.toString());
+    }
 }
