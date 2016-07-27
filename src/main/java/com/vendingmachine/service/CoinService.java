@@ -29,6 +29,6 @@ public class CoinService {
     }
 
     private void askForNextCoin() {
-        System.out.println("Insert coin");
+        System.out.println("Insert coin:");
     }
 }
