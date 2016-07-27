@@ -10,12 +10,11 @@ public class CoinService {
     }
 
     private String determineConsoleOutput(Coin coin) {
-        Integer coinValue = coin.getValue();
         if (coin.isValid()) {
-            runningTotal += coinValue;
+            runningTotal += coin.getValue();
             return "Current amount: " + runningTotal;
         } else {
-            return "Coin return: " + coinValue;
+            return "Coin return: " + coin.getValue();
         }
     }
 }

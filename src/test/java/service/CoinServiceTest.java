@@ -44,7 +44,7 @@ public class CoinServiceTest {
 
         assertEquals("Current amount: 5\nCurrent amount: 10\nCurrent amount: 35\n", byteArrayOutputStream.toString());
     }
-    
+
     @Test
     public void shouldPrintCurrentAmountFiveCoinReturnOne() {
         Coin nickel = new Coin().setValue(5);
