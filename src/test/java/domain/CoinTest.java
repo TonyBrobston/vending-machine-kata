@@ -7,16 +7,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
+import static constants.Coins.*;
 
 @RunWith(DataProviderRunner.class)
 public class CoinTest {
     @DataProvider
     public static Object[][] coinDataProvier() {
         return new Object[][] {
-                { 5, true },
-                { 10, true },
-                { 25, true },
-                { 1, false },
+                { NICKEL, true },
+                { DIME, true },
+                { QUARTER, true },
+                { PENNY, false },
                 { null, false }
         };
     }

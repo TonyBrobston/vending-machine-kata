@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import static constants.Coins.*;
 import static org.junit.Assert.assertEquals;
 
 public class CoinServiceTest {
@@ -25,7 +26,7 @@ public class CoinServiceTest {
 
     @Test
     public void shouldPrintCurrentAmountFiveToConsole() {
-        Coin nickel = new Coin().setValue(5);
+        Coin nickel = new Coin().setValue(NICKEL);
 
         new CoinService().insertCoin(nickel);
 
@@ -34,8 +35,8 @@ public class CoinServiceTest {
 
     @Test
     public void shouldPrintCurrentAmountFiveCurrentAmountTenCurrentAmountThirtyFive() {
-        Coin nickel = new Coin().setValue(5);
-        Coin quarter = new Coin().setValue(25);
+        Coin nickel = new Coin().setValue(NICKEL);
+        Coin quarter = new Coin().setValue(QUARTER);
 
         CoinService coinService = new CoinService();
         coinService.insertCoin(nickel);
@@ -47,8 +48,8 @@ public class CoinServiceTest {
 
     @Test
     public void shouldPrintCurrentAmountFiveCoinReturnOne() {
-        Coin nickel = new Coin().setValue(5);
-        Coin penny = new Coin().setValue(1);
+        Coin nickel = new Coin().setValue(NICKEL);
+        Coin penny = new Coin().setValue(PENNY);
 
         CoinService coinService = new CoinService();
         coinService.insertCoin(nickel);
@@ -59,7 +60,7 @@ public class CoinServiceTest {
 
     @Test
     public void shouldPrintCurrentAmountTwentyFive() {
-        Coin quarter = new Coin().setValue(25);
+        Coin quarter = new Coin().setValue(QUARTER);
 
         new CoinService().insertCoin(quarter);
 
@@ -68,7 +69,7 @@ public class CoinServiceTest {
 
     @Test
     public void shouldPrintCoinReturnOne() {
-        Coin penny = new Coin().setValue(1);
+        Coin penny = new Coin().setValue(PENNY);
 
         new CoinService().insertCoin(penny);
 
