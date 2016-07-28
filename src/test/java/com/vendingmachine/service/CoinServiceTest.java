@@ -30,7 +30,7 @@ public class CoinServiceTest {
 
         new CoinService().insertCoin(nickel);
 
-        assertEquals("Insert coin:\nCurrent amount: 5\nInsert coin:\n", byteArrayOutputStream.toString());
+        assertEquals("Insert coin: Current amount: 5\nInsert coin: ", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -43,7 +43,7 @@ public class CoinServiceTest {
         coinService.insertCoin(nickel);
         coinService.insertCoin(quarter);
 
-        assertEquals("Insert coin:\nCurrent amount: 5\nInsert coin:\nCurrent amount: 10\nInsert coin:\nCurrent amount: 35\nInsert coin:\n", byteArrayOutputStream.toString());
+        assertEquals("Insert coin: Current amount: 5\nInsert coin: Current amount: 10\nInsert coin: Current amount: 35\nInsert coin: ", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -55,7 +55,7 @@ public class CoinServiceTest {
         coinService.insertCoin(nickel);
         coinService.insertCoin(penny);
 
-        assertEquals("Insert coin:\nCurrent amount: 5\nInsert coin:\nCoin return: 1\nInsert coin:\n", byteArrayOutputStream.toString());
+        assertEquals("Insert coin: Current amount: 5\nInsert coin: Coin return: 1\nInsert coin: ", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -64,7 +64,7 @@ public class CoinServiceTest {
 
         new CoinService().insertCoin(quarter);
 
-        assertEquals("Insert coin:\nCurrent amount: 25\nInsert coin:\n", byteArrayOutputStream.toString());
+        assertEquals("Insert coin: Current amount: 25\nInsert coin: ", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class CoinServiceTest {
 
         new CoinService().insertCoin(penny);
 
-        assertEquals("Insert coin:\nCoin return: 1\nInsert coin:\n", byteArrayOutputStream.toString());
+        assertEquals("Insert coin: Coin return: 1\nInsert coin: ", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -82,13 +82,13 @@ public class CoinServiceTest {
 
         new CoinService().insertCoin(halfDollar);
 
-        assertEquals("Insert coin:\nCoin return: 50\nInsert coin:\n", byteArrayOutputStream.toString());
+        assertEquals("Insert coin: Coin return: 50\nInsert coin: ", byteArrayOutputStream.toString());
     }
 
     @Test
     public void shouldPrintInsertCoinIfNoCoinIsInserted() {
         new CoinService();
 
-        assertEquals("Insert coin:\n", byteArrayOutputStream.toString());
+        assertEquals("Insert coin: ", byteArrayOutputStream.toString());
     }
 }

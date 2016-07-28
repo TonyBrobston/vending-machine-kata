@@ -5,16 +5,13 @@ import com.vendingmachine.domain.Coin;
 public class CoinService {
     private Integer runningTotal = 0;
 
-    public void insertCoin(Coin coin) {
-        System.out.println(determineConsoleOutput(coin));
+    public CoinService() {
         askForNextCoin();
     }
 
-    public CoinService() {
-        insertCoin();
-    }
-
-    private void insertCoin() {
+    public void insertCoin(Coin coin) {
+        String consoleOutput = determineConsoleOutput(coin);
+        System.out.println(consoleOutput);
         askForNextCoin();
     }
 
@@ -29,6 +26,6 @@ public class CoinService {
     }
 
     private void askForNextCoin() {
-        System.out.println("Insert coin:");
+        System.out.print("Insert coin: ");
     }
 }

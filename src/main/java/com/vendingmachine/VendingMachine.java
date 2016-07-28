@@ -10,14 +10,13 @@ public class VendingMachine {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         CoinService coinService = new CoinService();
-
         boolean continueLoop = true;
         do {
             String entry = scanner.next();
-            if (endLoop(entry)) {
-                continueLoop = false;
-            } else {
+            if (!endLoop(entry)) {
                 coinService.insertCoin(new Coin().setValue(entry));
+            } else {
+                continueLoop = false;
             }
         } while (continueLoop);
     }
