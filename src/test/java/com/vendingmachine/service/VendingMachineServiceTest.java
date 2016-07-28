@@ -30,7 +30,7 @@ public class VendingMachineServiceTest {
     public void shouldPrintInsertCoinIfInitialStartup() {
         new VendingMachineService().initialStartUp();
 
-        assertEquals("Insert coin or select a product: ", byteArrayOutputStream.toString());
+        assertEquals("Welcome to this super awesome Vending Machine application\nCoin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY.\nInsert coin or select a product: ", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -130,15 +130,13 @@ public class VendingMachineServiceTest {
     @Test
     public void shouldWorkWithStringsToTakeThreeQuartersAndDispenseChips() {
         VendingMachineService vendingMachineService = new VendingMachineService();
-        vendingMachineService.initialStartUp();
         vendingMachineService.input("quarter");
         vendingMachineService.input("quarter");
         vendingMachineService.input("quarter");
 
         vendingMachineService.input("chips");
 
-        assertEquals("Insert coin or select a product: " +
-                "Current amount: $0.25\nInsert coin or select a product: " +
+        assertEquals("Current amount: $0.25\nInsert coin or select a product: " +
                 "Current amount: $0.50\nInsert coin or select a product: " +
                 "Current amount: $0.75\nInsert coin or select a product: " +
                 "Product dispensed, thank you\nCurrent amount: $0.00\nInsert coin or select a product: ", byteArrayOutputStream.toString());

@@ -36,6 +36,8 @@ public class VendingMachineService {
     }
 
     public void initialStartUp() {
+        displayWelcome();
+        displayCoinAndProductOptions();
         askForNextCoin();
     }
 
@@ -46,6 +48,14 @@ public class VendingMachineService {
         } else {
             System.out.println("Coin return: " + formatCurrency(coin.getValue()));
         }
+    }
+
+    private void displayWelcome() {
+        System.out.println("Welcome to this super awesome Vending Machine application");
+    }
+
+    private void displayCoinAndProductOptions() {
+        System.out.println("Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY.");
     }
 
     private void displayRunningTotal() {
