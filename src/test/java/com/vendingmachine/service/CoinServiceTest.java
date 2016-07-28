@@ -91,4 +91,6 @@ public class CoinServiceTest {
 
         assertEquals("Insert coin or select a product: Coin return: $0.50\nInsert coin or select a product: ", byteArrayOutputStream.toString());
     }
+
+
 }

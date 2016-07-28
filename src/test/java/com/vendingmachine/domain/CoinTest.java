@@ -34,7 +34,7 @@ public class CoinTest {
     public static Object[][] coinConverterDataProvier() {
         return new Object[][] {
                 { "nickel", NICKEL },
-                { "1", PENNY }
+                { ".01", PENNY }
         };
     }
 
