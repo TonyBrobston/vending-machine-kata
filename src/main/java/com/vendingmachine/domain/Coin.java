@@ -11,7 +11,7 @@ import static com.vendingmachine.constants.Coins.*;
 public class Coin {
     private BigDecimal value = BigDecimal.ZERO;
 
-    public boolean isValid() {
+    public boolean isValidForUse() {
         List<BigDecimal> validCoins = Arrays.asList(NICKEL, DIME, QUARTER);
         return validCoins.contains(this.value);
     }

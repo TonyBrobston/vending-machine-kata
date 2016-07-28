@@ -2,6 +2,7 @@ package com.vendingmachine.service;
 
 import com.vendingmachine.domain.Coin;
 import com.vendingmachine.domain.Product;
+import com.vendingmachine.validator.Validator;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
@@ -11,6 +12,14 @@ public class VendingMachineService {
 
     public VendingMachineService() {
         askForNextCoin();
+    }
+
+    public void input(String value) {
+        if (new Validator().isACoin(value)) {
+            insertCoin(new Coin().setValue(value));
+        } else {
+            dispenseProduct(new Product().setValue(value));
+        }
     }
 
     public void insertCoin(Coin coin) {
@@ -30,7 +39,7 @@ public class VendingMachineService {
     }
 
     private void displayRunningTotalOrCoinReturn(Coin coin) {
-        if (coin.isValid()) {
+        if (coin.isValidForUse()) {
             runningTotal = runningTotal.add(coin.getValue());
             displayRunningTotal();
         } else {

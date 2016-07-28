@@ -14,7 +14,7 @@ import static com.vendingmachine.constants.Coins.*;
 @RunWith(DataProviderRunner.class)
 public class CoinTest {
     @DataProvider
-    public static Object[][] coinDataProvier() {
+    public static Object[][] coinDataProvider() {
         return new Object[][] {
                 { NICKEL, true },
                 { DIME, true },
@@ -25,9 +25,9 @@ public class CoinTest {
     }
 
     @Test
-    @UseDataProvider("coinDataProvier")
+    @UseDataProvider("coinDataProvider")
     public void shouldPassIfIsValidCoin(BigDecimal value, boolean expected) {
-        assertEquals(expected, new Coin().setValue(value).isValid());
+        assertEquals(expected, new Coin().setValue(value).isValidForUse());
     }
 
     @DataProvider

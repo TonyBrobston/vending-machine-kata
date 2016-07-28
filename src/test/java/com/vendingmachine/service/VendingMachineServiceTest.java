@@ -104,7 +104,7 @@ public class VendingMachineServiceTest {
     }
 
     @Test
-    public void shouldTakeTwoQuartersAndDispenseChips() {
+    public void shouldTakeThreeQuartersAndDispenseChips() {
         VendingMachineService vendingMachineService = new VendingMachineService();
         Coin quarter = new Coin().setValue(QUARTER);
         vendingMachineService.insertCoin(quarter);
@@ -133,6 +133,22 @@ public class VendingMachineServiceTest {
         assertEquals("Insert coin or select a product: " +
                 "Current amount: $0.25\nInsert coin or select a product: " +
                 "Not enough money, price is $0.50\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+    }
+
+    @Test
+    public void shouldWorkWithStringsToTakeThreeQuartersAndDispenseChips() {
+        VendingMachineService vendingMachineService = new VendingMachineService();
+        vendingMachineService.input("quarter");
+        vendingMachineService.input("quarter");
+        vendingMachineService.input("quarter");
+
+        vendingMachineService.input("chips");
+
+        assertEquals("Insert coin or select a product: " +
+                "Current amount: $0.25\nInsert coin or select a product: " +
+                "Current amount: $0.50\nInsert coin or select a product: " +
+                "Current amount: $0.75\nInsert coin or select a product: " +
+                "Product dispensed, thank you\nCurrent amount: $0.00\nInsert coin or select a product: ", byteArrayOutputStream.toString());
     }
 
 }
