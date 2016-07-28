@@ -28,11 +28,11 @@ public class CoinService {
         }
     }
 
-    private String formatCurrency(BigDecimal runningTotal) {
-        return NumberFormat.getCurrencyInstance().format(runningTotal);
-    }
-
     private void askForNextCoin() {
         System.out.print("Insert coin: ");
+    }
+
+    private String formatCurrency(BigDecimal runningTotal) {
+        return NumberFormat.getCurrencyInstance().format(runningTotal);
     }
 }
