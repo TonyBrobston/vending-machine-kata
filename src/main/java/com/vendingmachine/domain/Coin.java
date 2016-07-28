@@ -1,6 +1,6 @@
 package com.vendingmachine.domain;
 
-import com.vendingmachine.utility.Converter;
+import com.vendingmachine.converter.CoinConverter;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +16,7 @@ public class Coin {
     }
 
     public Coin setValue(String value) {
-        this.value = new Converter().toCoin(value);
+        this.value = new CoinConverter().toCoin(value);
         return this;
     }
 

@@ -1,8 +1,8 @@
-package com.vendingmachine.utility;
+package com.vendingmachine.converter;
 
 import static com.vendingmachine.constants.Coins.*;
 
-public class Converter {
+public class CoinConverter {
     public Integer toCoin(String entry) {
         String entryWithoutSpaces = removeSpaces(entry);
         if (isPenny(entryWithoutSpaces)) {

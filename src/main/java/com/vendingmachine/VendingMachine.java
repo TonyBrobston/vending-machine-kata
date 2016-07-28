@@ -2,7 +2,6 @@ package com.vendingmachine;
 
 import com.vendingmachine.domain.Coin;
 import com.vendingmachine.service.CoinService;
-import com.vendingmachine.utility.Converter;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package com.vendingmachine.utility;
+package com.vendingmachine.converter;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 import static com.vendingmachine.constants.Coins.*;
 
 @RunWith(DataProviderRunner.class)
-public class ConverterTest {
+public class CoinConverterTest {
     @DataProvider
     public static Object[][] toCoinDataProvier() {
         return new Object[][] {
@@ -39,6 +39,6 @@ public class ConverterTest {
     @Test
     @UseDataProvider("toCoinDataProvier")
     public void shouldConvertStringToInteger(String entry, Integer expected) {
-        assertEquals(expected, new Converter().toCoin(entry));
+        assertEquals(expected, new CoinConverter().toCoin(entry));
     }
 }
