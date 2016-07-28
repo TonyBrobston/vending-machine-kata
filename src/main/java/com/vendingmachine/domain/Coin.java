@@ -2,16 +2,17 @@ package com.vendingmachine.domain;
 
 import com.vendingmachine.converter.CoinConverter;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
 import static com.vendingmachine.constants.Coins.*;
 
 public class Coin {
-    private Integer value = 0;
+    private BigDecimal value = BigDecimal.ZERO;
 
     public boolean isValid() {
-        List<Integer> validCoins = Arrays.asList(NICKEL, DIME, QUARTER);
+        List<BigDecimal> validCoins = Arrays.asList(NICKEL, DIME, QUARTER);
         return validCoins.contains(this.value);
     }
 
@@ -20,11 +21,11 @@ public class Coin {
         return this;
     }
 
-    public Integer getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
-    public Coin setValue(Integer value) {
+    public Coin setValue(BigDecimal value) {
         this.value = value;
         return this;
     }

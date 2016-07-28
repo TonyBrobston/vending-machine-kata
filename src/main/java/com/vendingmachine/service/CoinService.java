@@ -2,8 +2,11 @@ package com.vendingmachine.service;
 
 import com.vendingmachine.domain.Coin;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+
 public class CoinService {
-    private Integer runningTotal = 0;
+    private BigDecimal runningTotal = BigDecimal.ZERO;
 
     public CoinService() {
         askForNextCoin();
@@ -16,13 +19,17 @@ public class CoinService {
     }
 
     private String determineConsoleOutput(Coin coin) {
-        Integer coinValue = coin.getValue();
+        BigDecimal coinValue = coin.getValue();
         if (coin.isValid()) {
-            runningTotal += coinValue;
-            return "Current amount: " + runningTotal;
+            runningTotal = runningTotal.add(coinValue);
+            return "Current amount: " + formatCurrency(runningTotal);
         } else {
-            return "Coin return: " + coinValue;
+            return "Coin return: " + formatCurrency(coinValue);
         }
+    }
+
+    private String formatCurrency(BigDecimal runningTotal) {
+        return NumberFormat.getCurrencyInstance().format(runningTotal);
     }
 
     private void askForNextCoin() {

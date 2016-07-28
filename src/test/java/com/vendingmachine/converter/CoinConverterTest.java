@@ -6,6 +6,8 @@ import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.assertEquals;
 import static com.vendingmachine.constants.Coins.*;
 
@@ -21,16 +23,16 @@ public class CoinConverterTest {
                 { "Quarter", QUARTER },
                 { "Half dollar", HALF_DOLLAR },
                 { "Halfdollar", HALF_DOLLAR },
-                { "1", PENNY },
-                { "5", NICKEL },
-                { "10", DIME },
-                { "25", QUARTER },
-                { "50", HALF_DOLLAR },
-                { "one", PENNY },
-                { "five", NICKEL },
-                { "ten", DIME },
-                { "twentyfive", QUARTER },
-                { "fifty", HALF_DOLLAR },
+                { ".01", PENNY },
+                { ".05", NICKEL },
+                { ".10", DIME },
+                { ".25", QUARTER },
+                { ".50", HALF_DOLLAR },
+                { "0.01", PENNY },
+                { "0.05", NICKEL },
+                { "0.10", DIME },
+                { "0.25", QUARTER },
+                { "0.50", HALF_DOLLAR },
                 { "", NULL },
                 { "asdf", NULL }
         };
@@ -38,7 +40,7 @@ public class CoinConverterTest {
 
     @Test
     @UseDataProvider("toCoinDataProvier")
-    public void shouldConvertStringToInteger(String entry, Integer expected) {
+    public void shouldConvertStringToBigDecimal(String entry, BigDecimal expected) {
         assertEquals(expected, new CoinConverter().toCoin(entry));
     }
 }

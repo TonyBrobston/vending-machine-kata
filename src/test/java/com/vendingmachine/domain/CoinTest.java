@@ -6,6 +6,8 @@ import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.*;
 import static com.vendingmachine.constants.Coins.*;
 
@@ -24,7 +26,7 @@ public class CoinTest {
 
     @Test
     @UseDataProvider("coinDataProvier")
-    public void shouldPassIfIsValidCoin(Integer value, boolean expected) {
+    public void shouldPassIfIsValidCoin(BigDecimal value, boolean expected) {
         assertEquals(expected, new Coin().setValue(value).isValid());
     }
 
@@ -38,7 +40,7 @@ public class CoinTest {
 
     @Test
     @UseDataProvider("coinConverterDataProvier")
-    public void shouldConvertStringsToIntegerInSetter(String in, Integer out) {
+    public void shouldConvertStringsToBigDecimalInSetter(String in, BigDecimal out) {
         assertEquals(out, new Coin().setValue(in).getValue());
     }
 }

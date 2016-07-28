@@ -1,9 +1,11 @@
 package com.vendingmachine.converter;
 
+import java.math.BigDecimal;
+
 import static com.vendingmachine.constants.Coins.*;
 
 public class CoinConverter {
-    public Integer toCoin(String entry) {
+    public BigDecimal toCoin(String entry) {
         String entryWithoutSpaces = removeSpaces(entry);
         if (isPenny(entryWithoutSpaces)) {
             return PENNY;
@@ -21,23 +23,23 @@ public class CoinConverter {
     }
 
     private boolean isPenny(String entry) {
-        return "penny".equalsIgnoreCase(entry) || "1".equals(entry) || "one".equalsIgnoreCase(entry);
+        return "penny".equalsIgnoreCase(entry) || ".01".equals(entry) || "0.01".equals(entry);
     }
 
     private boolean isNickel(String entry) {
-        return "nickel".equalsIgnoreCase(entry) || "5".equals(entry) || "five".equalsIgnoreCase(entry);
+        return "nickel".equalsIgnoreCase(entry) || ".05".equals(entry) || "0.05".equals(entry);
     }
 
     private boolean isDime(String entry) {
-        return "dime".equalsIgnoreCase(entry) || "10".equals(entry) || "ten".equalsIgnoreCase(entry);
+        return "dime".equalsIgnoreCase(entry) || ".10".equals(entry) || "0.10".equals(entry);
     }
 
     private boolean isQuarter(String entry) {
-        return "quarter".equalsIgnoreCase(entry) || "25".equals(entry) || "twentyfive".equalsIgnoreCase(entry);
+        return "quarter".equalsIgnoreCase(entry) || ".25".equals(entry) || "0.25".equals(entry);
     }
 
     private boolean isHalfDollar(String entry) {
-        return "halfdollar".equalsIgnoreCase(entry) || "50".equals(entry) || "fifty".equalsIgnoreCase(entry);
+        return "halfdollar".equalsIgnoreCase(entry) || ".50".equals(entry) || "0.50".equals(entry);
     }
 
     private String removeSpaces(String entry) {
