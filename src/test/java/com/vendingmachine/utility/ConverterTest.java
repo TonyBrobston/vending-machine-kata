@@ -26,6 +26,11 @@ public class ConverterTest {
                 { "10", DIME },
                 { "25", QUARTER },
                 { "50", HALF_DOLLAR },
+                { "one", PENNY },
+                { "five", NICKEL },
+                { "ten", DIME },
+                { "twentyfive", QUARTER },
+                { "fifty", HALF_DOLLAR },
                 { "", NULL },
                 { "asdf", NULL }
         };

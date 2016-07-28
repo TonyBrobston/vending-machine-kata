@@ -2,6 +2,7 @@ package com.vendingmachine;
 
 import com.vendingmachine.domain.Coin;
 import com.vendingmachine.service.CoinService;
+import com.vendingmachine.utility.Converter;
 
 import java.util.Scanner;
 
@@ -16,12 +17,7 @@ public class VendingMachine {
             if (endLoop(entry)) {
                 continueLoop = false;
             } else {
-                try {
-                    Integer coinValue = Integer.valueOf(entry);
-                    coinService.insertCoin(new Coin().setValue(coinValue));
-                } catch (NumberFormatException numberFormatException) {
-                    System.out.println("Please enter a valid coin");
-                }
+                coinService.insertCoin(new Coin().setValue(entry));
             }
         } while (continueLoop);
     }

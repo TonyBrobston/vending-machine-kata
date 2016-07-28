@@ -21,23 +21,23 @@ public class Converter {
     }
 
     private boolean isPenny(String entry) {
-        return "penny".equalsIgnoreCase(entry) || "1".equals(entry);
+        return "penny".equalsIgnoreCase(entry) || "1".equals(entry) || "one".equalsIgnoreCase(entry);
     }
 
     private boolean isNickel(String entry) {
-        return "nickel".equalsIgnoreCase(entry) || "5".equals(entry);
+        return "nickel".equalsIgnoreCase(entry) || "5".equals(entry) || "five".equalsIgnoreCase(entry);
     }
 
     private boolean isDime(String entry) {
-        return "dime".equalsIgnoreCase(entry) || "10".equals(entry);
+        return "dime".equalsIgnoreCase(entry) || "10".equals(entry) || "ten".equalsIgnoreCase(entry);
     }
 
     private boolean isQuarter(String entry) {
-        return "quarter".equalsIgnoreCase(entry) || "25".equals(entry);
+        return "quarter".equalsIgnoreCase(entry) || "25".equals(entry) || "twentyfive".equalsIgnoreCase(entry);
     }
 
     private boolean isHalfDollar(String entry) {
-        return "halfdollar".equalsIgnoreCase(entry) || "50".equals(entry);
+        return "halfdollar".equalsIgnoreCase(entry) || "50".equals(entry) || "fifty".equalsIgnoreCase(entry);
     }
 
     private String removeSpaces(String entry) {

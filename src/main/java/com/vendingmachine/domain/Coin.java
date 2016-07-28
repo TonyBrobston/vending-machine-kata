@@ -1,5 +1,7 @@
 package com.vendingmachine.domain;
 
+import com.vendingmachine.utility.Converter;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,6 +13,11 @@ public class Coin {
     public boolean isValid() {
         List<Integer> validCoins = Arrays.asList(NICKEL, DIME, QUARTER);
         return validCoins.contains(this.value);
+    }
+
+    public Coin setValue(String value) {
+        this.value = new Converter().toCoin(value);
+        return this;
     }
 
     public Integer getValue() {

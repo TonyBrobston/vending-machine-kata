@@ -27,4 +27,18 @@ public class CoinTest {
     public void shouldPassIfIsValidCoin(Integer value, boolean expected) {
         assertEquals(expected, new Coin().setValue(value).isValid());
     }
+
+    @DataProvider
+    public static Object[][] coinConverterDataProvier() {
+        return new Object[][] {
+                { "nickel", NICKEL },
+                { "1", PENNY }
+        };
+    }
+
+    @Test
+    @UseDataProvider("coinConverterDataProvier")
+    public void shouldConvertStringsToIntegerInSetter(String in, Integer out) {
+        assertEquals(out, new Coin().setValue(in).getValue());
+    }
 }
