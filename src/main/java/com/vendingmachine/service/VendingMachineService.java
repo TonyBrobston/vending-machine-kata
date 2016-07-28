@@ -10,21 +10,19 @@ import java.text.NumberFormat;
 public class VendingMachineService {
     private BigDecimal runningTotal = BigDecimal.ZERO;
 
-    public VendingMachineService() {
-        askForNextCoin();
-    }
-
     public void input(String value) {
         if (new Validator().isACoin(value)) {
             insertCoin(new Coin().setValue(value));
-        } else {
+        } else if (new Validator().isAProduct(value)) {
             dispenseProduct(new Product().setValue(value));
+        } else {
+            displayNotAValidEntry();
         }
+        askForNextCoin();
     }
 
     public void insertCoin(Coin coin) {
         displayRunningTotalOrCoinReturn(coin);
-        askForNextCoin();
     }
 
     public void dispenseProduct(Product product) {
@@ -33,8 +31,11 @@ public class VendingMachineService {
             runningTotal = BigDecimal.ZERO;
             displayRunningTotal();
         } else {
-            notEnoughMoney(product);
+            displayNotEnoughMoney(product);
         }
+    }
+
+    public void initialStartUp() {
         askForNextCoin();
     }
 
@@ -51,16 +52,20 @@ public class VendingMachineService {
         System.out.println("Current amount: " + formatCurrency(runningTotal));
     }
 
-    private void askForNextCoin() {
-        System.out.print("Insert coin or select a product: ");
-    }
-
     private void displayProductDispensed() {
         System.out.println("Product dispensed, thank you");
     }
 
-    private void notEnoughMoney(Product product) {
+    private void displayNotEnoughMoney(Product product) {
         System.out.println("Not enough money, price is " + formatCurrency(product.getValue()));
+    }
+
+    private void displayNotAValidEntry() {
+        System.out.println("Not a valid entry");
+    }
+
+    private void askForNextCoin() {
+        System.out.print("Insert coin or select a product: ");
     }
 
     private String formatCurrency(BigDecimal runningTotal) {

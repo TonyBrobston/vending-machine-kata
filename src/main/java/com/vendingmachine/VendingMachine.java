@@ -1,6 +1,5 @@
 package com.vendingmachine;
 
-import com.vendingmachine.domain.Coin;
 import com.vendingmachine.service.VendingMachineService;
 
 import java.util.Scanner;
@@ -10,17 +9,18 @@ public class VendingMachine {
         Scanner scanner = new Scanner(System.in);
         VendingMachineService vendingMachineService = new VendingMachineService();
         boolean continueLoop = true;
-        do {
-            String entry = scanner.next();
-            if (!endLoop(entry)) {
-                vendingMachineService.insertCoin(new Coin().setValue(entry));
-            } else {
-                continueLoop = false;
-            }
-        } while (continueLoop);
+        startVendingMachineService(scanner, vendingMachineService, continueLoop);
     }
 
-    private static boolean endLoop(String entry) {
-        return "end".equals(entry);
+    private static void startVendingMachineService(Scanner scanner, VendingMachineService vendingMachineService, boolean continueLoop) {
+        vendingMachineService.initialStartUp();
+        do {
+            String value = scanner.next();
+            if ("end".equals(value)) {
+                continueLoop = false;
+            } else {
+                vendingMachineService.input(value);
+            }
+        } while (continueLoop);
     }
 }

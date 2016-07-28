@@ -27,8 +27,8 @@ public class VendingMachineServiceTest {
     }
 
     @Test
-    public void shouldPrintInsertCoinIfNoCoinIsInserted() {
-        new VendingMachineService();
+    public void shouldPrintInsertCoinIfInitialStartup() {
+        new VendingMachineService().initialStartUp();
 
         assertEquals("Insert coin or select a product: ", byteArrayOutputStream.toString());
     }
@@ -39,8 +39,7 @@ public class VendingMachineServiceTest {
 
         new VendingMachineService().insertCoin(nickel);
 
-        assertEquals("Insert coin or select a product: " +
-                "Current amount: $0.05\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+        assertEquals("Current amount: $0.05\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -53,10 +52,9 @@ public class VendingMachineServiceTest {
         vendingMachineService.insertCoin(nickel);
         vendingMachineService.insertCoin(quarter);
 
-        assertEquals("Insert coin or select a product: " +
-                "Current amount: $0.05\nInsert coin or select a product: " +
-                "Current amount: $0.10\nInsert coin or select a product: " +
-                "Current amount: $0.35\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+        assertEquals("Current amount: $0.05\n" +
+                "Current amount: $0.10\n" +
+                "Current amount: $0.35\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -68,9 +66,8 @@ public class VendingMachineServiceTest {
         vendingMachineService.insertCoin(nickel);
         vendingMachineService.insertCoin(penny);
 
-        assertEquals("Insert coin or select a product: " +
-                "Current amount: $0.05\nInsert coin or select a product: " +
-                "Coin return: $0.01\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+        assertEquals("Current amount: $0.05\n" +
+                "Coin return: $0.01\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -79,8 +76,7 @@ public class VendingMachineServiceTest {
 
         new VendingMachineService().insertCoin(quarter);
 
-        assertEquals("Insert coin or select a product: " +
-                "Current amount: $0.25\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+        assertEquals("Current amount: $0.25\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -89,8 +85,7 @@ public class VendingMachineServiceTest {
 
         new VendingMachineService().insertCoin(penny);
 
-        assertEquals("Insert coin or select a product: " +
-                "Coin return: $0.01\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+        assertEquals("Coin return: $0.01\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -99,8 +94,7 @@ public class VendingMachineServiceTest {
 
         new VendingMachineService().insertCoin(halfDollar);
 
-        assertEquals("Insert coin or select a product: " +
-                "Coin return: $0.50\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+        assertEquals("Coin return: $0.50\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -114,11 +108,10 @@ public class VendingMachineServiceTest {
 
         vendingMachineService.dispenseProduct(chips);
 
-        assertEquals("Insert coin or select a product: " +
-                "Current amount: $0.25\nInsert coin or select a product: " +
-                "Current amount: $0.50\nInsert coin or select a product: " +
-                "Current amount: $0.75\nInsert coin or select a product: " +
-                "Product dispensed, thank you\nCurrent amount: $0.00\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+        assertEquals("Current amount: $0.25\n" +
+                "Current amount: $0.50\n" +
+                "Current amount: $0.75\n" +
+                "Product dispensed, thank you\nCurrent amount: $0.00\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -130,14 +123,14 @@ public class VendingMachineServiceTest {
 
         vendingMachineService.dispenseProduct(chips);
 
-        assertEquals("Insert coin or select a product: " +
-                "Current amount: $0.25\nInsert coin or select a product: " +
-                "Not enough money, price is $0.50\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+        assertEquals("Current amount: $0.25\n" +
+                "Not enough money, price is $0.50\n", byteArrayOutputStream.toString());
     }
 
     @Test
     public void shouldWorkWithStringsToTakeThreeQuartersAndDispenseChips() {
         VendingMachineService vendingMachineService = new VendingMachineService();
+        vendingMachineService.initialStartUp();
         vendingMachineService.input("quarter");
         vendingMachineService.input("quarter");
         vendingMachineService.input("quarter");
@@ -149,6 +142,15 @@ public class VendingMachineServiceTest {
                 "Current amount: $0.50\nInsert coin or select a product: " +
                 "Current amount: $0.75\nInsert coin or select a product: " +
                 "Product dispensed, thank you\nCurrent amount: $0.00\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+    }
+
+    @Test
+    public void shouldHandleNeitherACoinNorAProductEvenKnowThatIsSupposedToBeImpossible() {
+        VendingMachineService vendingMachineService = new VendingMachineService();
+
+        vendingMachineService.input("potato cannon");
+
+        assertEquals("Not a valid entry\nInsert coin or select a product: ", byteArrayOutputStream.toString());
     }
 
 }
