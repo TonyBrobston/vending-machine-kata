@@ -29,7 +29,7 @@ public class CoinService {
     }
 
     private void askForNextCoin() {
-        System.out.print("Insert coin: ");
+        System.out.print("Insert coin or select a product: ");
     }
 
     private String formatCurrency(BigDecimal runningTotal) {

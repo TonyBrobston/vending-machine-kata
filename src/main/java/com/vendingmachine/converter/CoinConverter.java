@@ -18,7 +18,7 @@ public class CoinConverter {
         } else if (isHalfDollar(entryWithoutSpaces)) {
             return HALF_DOLLAR;
         } else {
-            return NULL;
+            return NONE;
         }
     }
 
@@ -31,7 +31,7 @@ public class CoinConverter {
     }
 
     private boolean isDime(String entry) {
-        return "dime".equalsIgnoreCase(entry) || ".10".equals(entry) || "0.10".equals(entry);
+        return "dime".equalsIgnoreCase(entry) || ".10".equals(entry) || "0.10".equals(entry) || ".1".equals(entry) || "0.1".equals(entry);
     }
 
     private boolean isQuarter(String entry) {
@@ -39,7 +39,7 @@ public class CoinConverter {
     }
 
     private boolean isHalfDollar(String entry) {
-        return "halfdollar".equalsIgnoreCase(entry) || ".50".equals(entry) || "0.50".equals(entry);
+        return "halfdollar".equalsIgnoreCase(entry) || ".50".equals(entry) || "0.50".equals(entry) || ".5".equals(entry) || "0.5".equals(entry);
     }
 
     private String removeSpaces(String entry) {
