@@ -1,0 +1,46 @@
+package com.vendingmachine.utility;
+
+import static com.vendingmachine.constants.Coins.*;
+
+public class Converter {
+    public Integer toCoin(String entry) {
+        String entryWithoutSpaces = removeSpaces(entry);
+        if (isPenny(entryWithoutSpaces)) {
+            return PENNY;
+        } else if (isNickel(entryWithoutSpaces)) {
+            return NICKEL;
+        } else if (isDime(entryWithoutSpaces)) {
+            return DIME;
+        } else if (isQuarter(entryWithoutSpaces)) {
+            return QUARTER;
+        } else if (isHalfDollar(entryWithoutSpaces)) {
+            return HALF_DOLLAR;
+        } else {
+            return NULL;
+        }
+    }
+
+    private boolean isPenny(String entry) {
+        return "penny".equalsIgnoreCase(entry) || "1".equals(entry);
+    }
+
+    private boolean isNickel(String entry) {
+        return "nickel".equalsIgnoreCase(entry) || "5".equals(entry);
+    }
+
+    private boolean isDime(String entry) {
+        return "dime".equalsIgnoreCase(entry) || "10".equals(entry);
+    }
+
+    private boolean isQuarter(String entry) {
+        return "quarter".equalsIgnoreCase(entry) || "25".equals(entry);
+    }
+
+    private boolean isHalfDollar(String entry) {
+        return "halfdollar".equalsIgnoreCase(entry) || "50".equals(entry);
+    }
+
+    private String removeSpaces(String entry) {
+        return entry.replaceAll("\\s","");
+    }
+}
