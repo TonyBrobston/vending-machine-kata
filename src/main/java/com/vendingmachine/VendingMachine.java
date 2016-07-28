@@ -1,19 +1,19 @@
 package com.vendingmachine;
 
 import com.vendingmachine.domain.Coin;
-import com.vendingmachine.service.CoinService;
+import com.vendingmachine.service.VendingMachineService;
 
 import java.util.Scanner;
 
 public class VendingMachine {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        CoinService coinService = new CoinService();
+        VendingMachineService vendingMachineService = new VendingMachineService();
         boolean continueLoop = true;
         do {
             String entry = scanner.next();
             if (!endLoop(entry)) {
-                coinService.insertCoin(new Coin().setValue(entry));
+                vendingMachineService.insertCoin(new Coin().setValue(entry));
             } else {
                 continueLoop = false;
             }
