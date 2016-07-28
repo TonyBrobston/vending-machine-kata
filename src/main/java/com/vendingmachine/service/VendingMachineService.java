@@ -22,11 +22,12 @@ public class VendingMachineService {
     }
 
     public void insertCoin(Coin coin) {
-        displayRunningTotalOrCoinReturn(coin);
+        addCoinToRunningTotal(coin);
     }
 
     public void dispenseProduct(Product product) {
-        if ((runningTotal.compareTo(product.getValue())) >= 0) {
+        boolean hasEnoughCoinForProduct = (runningTotal.compareTo(product.getValue())) >= 0;
+        if (hasEnoughCoinForProduct) {
             displayProductDispensed();
             runningTotal = BigDecimal.ZERO;
             displayRunningTotal();
@@ -41,12 +42,12 @@ public class VendingMachineService {
         askForNextCoin();
     }
 
-    private void displayRunningTotalOrCoinReturn(Coin coin) {
+    private void addCoinToRunningTotal(Coin coin) {
         if (coin.isValidForUse()) {
             runningTotal = runningTotal.add(coin.getValue());
             displayRunningTotal();
         } else {
-            System.out.println("Coin return: " + formatCurrency(coin.getValue()));
+            displayCoinReturn(coin);
         }
     }
 
@@ -72,6 +73,10 @@ public class VendingMachineService {
 
     private void displayNotAValidEntry() {
         System.out.println("Not a valid entry");
+    }
+
+    private void displayCoinReturn(Coin coin) {
+        System.out.println("Coin return: " + formatCurrency(coin.getValue()));
     }
 
     private void askForNextCoin() {
