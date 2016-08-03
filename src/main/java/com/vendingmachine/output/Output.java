@@ -1,9 +1,9 @@
 package com.vendingmachine.output;
 
 import com.vendingmachine.domain.Product;
+import com.vendingmachine.formatter.Formatter;
 
 import java.math.BigDecimal;
-import java.text.NumberFormat;
 
 public class Output {
     protected void displayWelcome() {
@@ -19,7 +19,7 @@ public class Output {
     }
 
     protected void displayCurrentAmount(BigDecimal runningTotal) {
-        System.out.println("Current amount: " + formatCurrency(runningTotal));
+        System.out.println("Current amount: " + new Formatter().toCurrency(runningTotal));
     }
 
     protected void displayProductDispensed() {
@@ -27,18 +27,15 @@ public class Output {
     }
 
     protected void displayNotEnoughMoney(Product product) {
-        System.out.println("Not enough money, price is " + formatCurrency(product.getValue()));
+        System.out.println("Not enough money, price is " + new Formatter().toCurrency(product.getValue()));
     }
 
     protected void displayCoinReturn(BigDecimal value) {
-        System.out.println("Coin return: " + formatCurrency(value));
+        System.out.println("Coin return: " + new Formatter().toCurrency(value));
     }
 
     protected void displayNotAValidInput() {
         System.out.println("Not a valid input or sold out.");
     }
 
-    protected String formatCurrency(BigDecimal runningTotal) {
-        return NumberFormat.getCurrencyInstance().format(runningTotal);
-    }
 }

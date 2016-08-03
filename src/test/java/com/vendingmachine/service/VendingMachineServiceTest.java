@@ -30,7 +30,9 @@ public class VendingMachineServiceTest {
     public void shouldPrintInsertCoinIfInitialStartup() {
         new VendingMachineService().initialStartUp();
 
-        assertEquals("Welcome to this super awesome Vending Machine application\nCoin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
+        assertEquals("Welcome to this super awesome Vending Machine application\n" +
+                "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
+                "Insert coin, select a product, or return: ", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -44,10 +46,10 @@ public class VendingMachineServiceTest {
 
     @Test
     public void shouldPrintCurrentAmountFiveCurrentAmountTenCurrentAmountThirtyFive() {
+        VendingMachineService vendingMachineService = new VendingMachineService();
         Coin nickel = new Coin().setValue(NICKEL);
         Coin quarter = new Coin().setValue(QUARTER);
 
-        VendingMachineService vendingMachineService = new VendingMachineService();
         vendingMachineService.inputCoin(nickel);
         vendingMachineService.inputCoin(nickel);
         vendingMachineService.inputCoin(quarter);
@@ -59,10 +61,10 @@ public class VendingMachineServiceTest {
 
     @Test
     public void shouldPrintCurrentAmountFiveCoinReturnOne() {
+        VendingMachineService vendingMachineService = new VendingMachineService();
         Coin nickel = new Coin().setValue(NICKEL);
         Coin penny = new Coin().setValue(PENNY);
 
-        VendingMachineService vendingMachineService = new VendingMachineService();
         vendingMachineService.inputCoin(nickel);
         vendingMachineService.inputCoin(penny);
 
