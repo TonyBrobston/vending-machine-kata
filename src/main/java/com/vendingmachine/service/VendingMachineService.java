@@ -42,7 +42,7 @@ public class VendingMachineService extends Output {
     }
 
     public void inputProductAndDispense(Product product) {
-        if (runningTotal.compareTo(product.getValue()) >= 0) {
+        if (product.isEnoughCoin(runningTotal)) {
             dispenseProduct(product);
         } else {
             displayNotEnoughMoney(product);
