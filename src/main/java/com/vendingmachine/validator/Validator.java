@@ -22,4 +22,11 @@ public class Validator {
     public boolean isReturn(String value) {
         return "return".equalsIgnoreCase(value);
     }
+
+    public boolean isGreaterThanZero(BigDecimal bigDecimal) {
+        if (bigDecimal == null) {
+            return false;
+        }
+        return bigDecimal.compareTo(BigDecimal.ZERO) > 0;
+    }
 }

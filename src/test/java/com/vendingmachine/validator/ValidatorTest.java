@@ -6,6 +6,8 @@ import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.assertEquals;
 
 @RunWith(DataProviderRunner.class)
@@ -54,6 +56,21 @@ public class ValidatorTest {
     @UseDataProvider("returnDataProvider")
     public void shouldPassIfIsReturn(String value, boolean expected) {
         assertEquals(expected, new Validator().isReturn(value));
+    }
+
+    @DataProvider
+    public static Object[][] isGreaterThanZeroDataProvider() {
+        return new Object[][] {
+                { BigDecimal.ONE, true },
+                { BigDecimal.ZERO, false },
+                { null, false }
+        };
+    }
+
+    @Test
+    @UseDataProvider("isGreaterThanZeroDataProvider")
+    public void shouldPassIfIsGreaterThanZero(BigDecimal bigDecimal, boolean expected) {
+        assertEquals(expected, new Validator().isGreaterThanZero(bigDecimal));
     }
 
 

@@ -25,7 +25,7 @@ public class VendingMachineService extends Output {
             returnCoins();
         } else {
             displayNotAValidInput();
-            if (runningTotal.compareTo(BigDecimal.ZERO) > 0) {
+            if (new Validator().isGreaterThanZero(runningTotal)) {
                 displayCurrentAmount(runningTotal);
             }
         }
@@ -52,7 +52,7 @@ public class VendingMachineService extends Output {
     private void dispenseProduct(Product product) {
         displayProductDispensed();
         runningTotal = runningTotal.subtract(product.getValue());
-        if (runningTotal.compareTo(BigDecimal.ZERO) > 0) {
+        if (new Validator().isGreaterThanZero(runningTotal)) {
             returnCoins();
         } else {
             displayCurrentAmount(runningTotal);
