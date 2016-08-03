@@ -16,9 +16,9 @@ import static org.junit.Assert.assertEquals;
 public class ProductTest {
     @DataProvider
     public static Object[][] productConverterDataProvider() {
-        return new Object[][] {
-                { "chips", CHIPS },
-                { "Candy", CANDY }
+        return new Object[][]{
+                {"chips", CHIPS},
+                {"Candy", CANDY}
         };
     }
 
@@ -30,22 +30,16 @@ public class ProductTest {
 
     @DataProvider
     public static Object[][] isEnoughCoinDataProvider() {
-        return new Object[][] {
-                { new BigDecimal(0.75), CHIPS, true },
-                { new BigDecimal(0.25), CHIPS, false },
-                { null, CHIPS, false }
+        return new Object[][]{
+                {new BigDecimal(0.75), CHIPS, true},
+                {new BigDecimal(0.25), CHIPS, false},
+                {null, CHIPS, false}
         };
     }
 
     @Test
     @UseDataProvider("isEnoughCoinDataProvider")
     public void shouldPassIfIsEnoughCoinForProduct(BigDecimal runningTotal, BigDecimal value, boolean expected) {
-        Product product = new Product().setValue(value);
-
-        boolean isEnoughForProduct = product.isEnoughCoin(runningTotal);
-
-        assertEquals(expected, isEnoughForProduct);
+        assertEquals(expected, new Product().setValue(value).isEnoughCoin(runningTotal));
     }
-
-
 }
