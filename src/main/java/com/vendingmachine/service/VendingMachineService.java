@@ -32,7 +32,7 @@ public class VendingMachineService extends Output {
         askForNextCoin();
     }
 
-    public void inputCoin(Coin coin) {
+    void inputCoin(Coin coin) {
         if (coin.isValidForUse()) {
             runningTotal = runningTotal.add(coin.getValue());
             displayCurrentAmount(runningTotal);
@@ -41,7 +41,7 @@ public class VendingMachineService extends Output {
         }
     }
 
-    public void inputProductAndDispense(Product product) {
+    void inputProductAndDispense(Product product) {
         if (product.isEnoughCoin(runningTotal)) {
             dispenseProduct(product);
         } else {
