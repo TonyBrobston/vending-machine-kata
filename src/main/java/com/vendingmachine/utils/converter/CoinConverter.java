@@ -1,4 +1,4 @@
-package com.vendingmachine.converter;
+package com.vendingmachine.utils.converter;
 
 import java.math.BigDecimal;
 

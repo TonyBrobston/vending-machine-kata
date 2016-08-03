@@ -1,7 +1,6 @@
-package com.vendingmachine.output;
+package com.vendingmachine.utils;
 
 import com.vendingmachine.domain.Product;
-import com.vendingmachine.formatter.Formatter;
 
 import java.math.BigDecimal;
 

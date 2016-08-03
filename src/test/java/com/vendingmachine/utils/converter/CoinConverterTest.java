@@ -1,8 +1,9 @@
-package com.vendingmachine.converter;
+package com.vendingmachine.utils.converter;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
+import com.vendingmachine.utils.converter.CoinConverter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

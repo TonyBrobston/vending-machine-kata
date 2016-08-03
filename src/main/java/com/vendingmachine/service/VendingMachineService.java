@@ -2,8 +2,8 @@ package com.vendingmachine.service;
 
 import com.vendingmachine.domain.Coin;
 import com.vendingmachine.domain.Product;
-import com.vendingmachine.output.Output;
-import com.vendingmachine.validator.Validator;
+import com.vendingmachine.utils.Output;
+import com.vendingmachine.utils.Validator;
 
 import java.math.BigDecimal;
 

@@ -1,5 +1,6 @@
-package com.vendingmachine.formatter;
+package com.vendingmachine.utils;
 
+import com.vendingmachine.utils.Formatter;
 import org.junit.Test;
 
 import java.math.BigDecimal;

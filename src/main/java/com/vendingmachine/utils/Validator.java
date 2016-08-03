@@ -1,7 +1,7 @@
-package com.vendingmachine.validator;
+package com.vendingmachine.utils;
 
-import com.vendingmachine.converter.CoinConverter;
-import com.vendingmachine.converter.ProductConverter;
+import com.vendingmachine.utils.converter.CoinConverter;
+import com.vendingmachine.utils.converter.ProductConverter;
 
 import java.math.BigDecimal;
 

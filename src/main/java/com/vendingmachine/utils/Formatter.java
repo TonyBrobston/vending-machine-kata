@@ -1,4 +1,4 @@
-package com.vendingmachine.formatter;
+package com.vendingmachine.utils;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;

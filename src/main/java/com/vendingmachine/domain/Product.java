@@ -1,6 +1,6 @@
 package com.vendingmachine.domain;
 
-import com.vendingmachine.converter.ProductConverter;
+import com.vendingmachine.utils.converter.ProductConverter;
 
 import java.math.BigDecimal;
 
