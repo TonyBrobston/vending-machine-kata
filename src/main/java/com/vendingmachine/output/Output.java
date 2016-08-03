@@ -1,6 +1,5 @@
 package com.vendingmachine.output;
 
-import com.vendingmachine.domain.Coin;
 import com.vendingmachine.domain.Product;
 
 import java.math.BigDecimal;
@@ -31,12 +30,12 @@ public class Output {
         System.out.println("Not enough money, price is " + formatCurrency(product.getValue()));
     }
 
-    protected void displayCoinReturn(Coin coin) {
-        System.out.println("Coin return: " + formatCurrency(coin.getValue()));
+    protected void displayCoinReturn(BigDecimal value) {
+        System.out.println("Coin return: " + formatCurrency(value));
     }
 
-    protected void displayNotAValidEntry() {
-        System.out.println("Not a valid entry");
+    protected void displayNotAValidInput() {
+        System.out.println("Not a valid input");
     }
 
     protected String formatCurrency(BigDecimal runningTotal) {
