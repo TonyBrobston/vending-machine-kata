@@ -16,7 +16,7 @@ public class VendingMachine {
         vendingMachineService.initialStartUp();
         do {
             String value = scanner.next();
-            if ("end".equals(value)) {
+            if ("end".equalsIgnoreCase(value)) {
                 continueLoop = false;
             } else {
                 vendingMachineService.input(value);

@@ -39,4 +39,22 @@ public class ValidatorTest {
     public void shouldPassIfIsValidProduct(String value, boolean expected) {
         assertEquals(expected, new Validator().isAProduct(value));
     }
+
+    @DataProvider
+    public static Object[][] returnDataProvider() {
+        return new Object[][] {
+                { "return", true },
+                { "Return", true },
+                { "", false },
+                { null, false }
+        };
+    }
+
+    @Test
+    @UseDataProvider("returnDataProvider")
+    public void shouldPassIfIsReturn(String value, boolean expected) {
+        assertEquals(expected, new Validator().isReturn(value));
+    }
+
+
 }

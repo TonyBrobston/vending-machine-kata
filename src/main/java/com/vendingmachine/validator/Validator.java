@@ -18,4 +18,8 @@ public class Validator {
         BigDecimal product = new ProductConverter().toProduct(value);
         return !product.equals(INVALID);
     }
+
+    public boolean isReturn(String value) {
+        return "return".equalsIgnoreCase(value);
+    }
 }

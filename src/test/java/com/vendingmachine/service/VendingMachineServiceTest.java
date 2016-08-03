@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static com.vendingmachine.constants.Coins.*;
-import static com.vendingmachine.constants.Products.*;
+import static com.vendingmachine.constants.Products.CHIPS;
 import static org.junit.Assert.assertEquals;
 
 public class VendingMachineServiceTest {
@@ -30,7 +30,7 @@ public class VendingMachineServiceTest {
     public void shouldPrintInsertCoinIfInitialStartup() {
         new VendingMachineService().initialStartUp();
 
-        assertEquals("Welcome to this super awesome Vending Machine application\nCoin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY.\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+        assertEquals("Welcome to this super awesome Vending Machine application\nCoin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -125,10 +125,10 @@ public class VendingMachineServiceTest {
 
         vendingMachineService.input("chips");
 
-        assertEquals("Current amount: $0.25\nInsert coin or select a product: " +
-                "Current amount: $0.50\nInsert coin or select a product: " +
-                "Current amount: $0.75\nInsert coin or select a product: " +
-                "Product dispensed, thank you\nCoin return: $0.25\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+        assertEquals("Current amount: $0.25\nInsert coin, select a product, or return: " +
+                "Current amount: $0.50\nInsert coin, select a product, or return: " +
+                "Current amount: $0.75\nInsert coin, select a product, or return: " +
+                "Product dispensed, thank you\nCoin return: $0.25\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -141,11 +141,26 @@ public class VendingMachineServiceTest {
 
         vendingMachineService.input("quarter");
 
-        assertEquals("Current amount: $0.25\nInsert coin or select a product: " +
-                "Current amount: $0.50\nInsert coin or select a product: " +
-                "Current amount: $0.75\nInsert coin or select a product: " +
-                "Product dispensed, thank you\nCoin return: $0.25\nInsert coin or select a product: " +
-                "Current amount: $0.25\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+        assertEquals("Current amount: $0.25\nInsert coin, select a product, or return: " +
+                "Current amount: $0.50\nInsert coin, select a product, or return: " +
+                "Current amount: $0.75\nInsert coin, select a product, or return: " +
+                "Product dispensed, thank you\nCoin return: $0.25\nInsert coin, select a product, or return: " +
+                "Current amount: $0.25\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
+    }
+
+    @Test
+    public void shouldTakeThreeDimesAndReturnThem() {
+        VendingMachineService vendingMachineService = new VendingMachineService();
+        vendingMachineService.input("dime");
+        vendingMachineService.input("dime");
+        vendingMachineService.input("dime");
+
+        vendingMachineService.input("Return");
+
+        assertEquals("Current amount: $0.10\nInsert coin, select a product, or return: " +
+                "Current amount: $0.20\nInsert coin, select a product, or return: " +
+                "Current amount: $0.30\nInsert coin, select a product, or return: " +
+                "Coin return: $0.30\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -154,7 +169,7 @@ public class VendingMachineServiceTest {
 
         vendingMachineService.input("potato cannon");
 
-        assertEquals("Not a valid input\nInsert coin or select a product: ", byteArrayOutputStream.toString());
+        assertEquals("Not a valid input\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
     }
 
 }

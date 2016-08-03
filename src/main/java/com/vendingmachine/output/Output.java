@@ -11,11 +11,11 @@ public class Output {
     }
 
     protected void displayCoinAndProductOptions() {
-        System.out.println("Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY.");
+        System.out.println("Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.");
     }
 
     protected void askForNextCoin() {
-        System.out.print("Insert coin or select a product: ");
+        System.out.print("Insert coin, select a product, or return: ");
     }
 
     protected void displayRunningTotal(BigDecimal runningTotal) {

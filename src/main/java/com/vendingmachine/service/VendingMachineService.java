@@ -21,6 +21,9 @@ public class VendingMachineService extends Output {
             inputCoin(new Coin().setValue(value));
         } else if (new Validator().isAProduct(value)) {
             inputProductAndDispense(new Product().setValue(value));
+        } else if (new Validator().isReturn(value)) {
+            displayCoinReturn(runningTotal);
+            runningTotal = BigDecimal.ZERO;
         } else {
             displayNotAValidInput();
         }
