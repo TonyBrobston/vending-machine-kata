@@ -7,4 +7,6 @@ public final class Products {
     public static final BigDecimal COLA = BigDecimal.ONE;
     public static final BigDecimal CHIPS = new BigDecimal(0.50);
     public static final BigDecimal CANDY = new BigDecimal(0.65);
+
+    private Products () {}
 }
