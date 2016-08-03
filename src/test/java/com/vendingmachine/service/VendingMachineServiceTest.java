@@ -89,15 +89,6 @@ public class VendingMachineServiceTest {
     }
 
     @Test
-    public void shouldPrintCoinReturnFifty() {
-        Coin halfDollar = new Coin().setValue(HALF_DOLLAR);
-
-        new VendingMachineService().insertCoin(halfDollar);
-
-        assertEquals("Coin return: $0.50\n", byteArrayOutputStream.toString());
-    }
-
-    @Test
     public void shouldTakeThreeQuartersAndDispenseChips() {
         VendingMachineService vendingMachineService = new VendingMachineService();
         Coin quarter = new Coin().setValue(QUARTER);

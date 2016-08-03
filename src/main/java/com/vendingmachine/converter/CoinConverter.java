@@ -6,17 +6,14 @@ import static com.vendingmachine.constants.Coins.*;
 
 public class CoinConverter {
     public BigDecimal toCoin(String entry) {
-        String entryWithoutSpaces = removeSpaces(entry);
-        if (isPenny(entryWithoutSpaces)) {
+        if (isPenny(entry)) {
             return PENNY;
-        } else if (isNickel(entryWithoutSpaces)) {
+        } else if (isNickel(entry)) {
             return NICKEL;
-        } else if (isDime(entryWithoutSpaces)) {
+        } else if (isDime(entry)) {
             return DIME;
-        } else if (isQuarter(entryWithoutSpaces)) {
+        } else if (isQuarter(entry)) {
             return QUARTER;
-        } else if (isHalfDollar(entryWithoutSpaces)) {
-            return HALF_DOLLAR;
         } else {
             return NONE;
         }
@@ -36,13 +33,5 @@ public class CoinConverter {
 
     private boolean isQuarter(String entry) {
         return "quarter".equalsIgnoreCase(entry) || ".25".equals(entry) || "0.25".equals(entry);
-    }
-
-    private boolean isHalfDollar(String entry) {
-        return "halfdollar".equalsIgnoreCase(entry) || ".50".equals(entry) || "0.50".equals(entry) || ".5".equals(entry) || "0.5".equals(entry);
-    }
-
-    private String removeSpaces(String entry) {
-        return entry.replaceAll("\\s","");
     }
 }
