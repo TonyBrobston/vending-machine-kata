@@ -25,6 +25,9 @@ public class VendingMachineService extends Output {
             returnCoins();
         } else {
             displayNotAValidInput();
+            if (runningTotal.compareTo(BigDecimal.ZERO) > 0) {
+                displayCurrentAmount(runningTotal);
+            }
         }
         askForNextCoin();
     }
@@ -32,7 +35,7 @@ public class VendingMachineService extends Output {
     public void inputCoin(Coin coin) {
         if (coin.isValidForUse()) {
             runningTotal = runningTotal.add(coin.getValue());
-            displayRunningTotal(runningTotal);
+            displayCurrentAmount(runningTotal);
         } else {
             displayCoinReturn(coin.getValue());
         }
@@ -52,7 +55,7 @@ public class VendingMachineService extends Output {
         if (runningTotal.compareTo(BigDecimal.ZERO) > 0) {
             returnCoins();
         } else {
-            displayRunningTotal(runningTotal);
+            displayCurrentAmount(runningTotal);
         }
     }
 

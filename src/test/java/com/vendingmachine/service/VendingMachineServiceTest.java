@@ -164,12 +164,22 @@ public class VendingMachineServiceTest {
     }
 
     @Test
-    public void shouldHandleNeitherACoinNorAProductEvenKnowThatIsSupposedToBeImpossible() {
+    public void shouldTakeADimeAndAProductThatIsOutOfStockAndDisplaySoldOut() {
         VendingMachineService vendingMachineService = new VendingMachineService();
+        vendingMachineService.input("dime");
 
-        vendingMachineService.input("potato cannon");
+        vendingMachineService.input("peanuts");
 
-        assertEquals("Not a valid input\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
+        assertEquals("Current amount: $0.10\nInsert coin, select a product, or return: " +
+                "Not a valid input or sold out.\nCurrent amount: $0.10\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
     }
 
+    @Test
+    public void shouldTakeAProductThatIsOutOfStockAndDisplaySoldOut() {
+        VendingMachineService vendingMachineService = new VendingMachineService();
+
+        vendingMachineService.input("peanuts");
+
+        assertEquals("Not a valid input or sold out.\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
+    }
 }

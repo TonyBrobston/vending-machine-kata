@@ -18,7 +18,7 @@ public class Output {
         System.out.print("Insert coin, select a product, or return: ");
     }
 
-    protected void displayRunningTotal(BigDecimal runningTotal) {
+    protected void displayCurrentAmount(BigDecimal runningTotal) {
         System.out.println("Current amount: " + formatCurrency(runningTotal));
     }
 
@@ -35,7 +35,7 @@ public class Output {
     }
 
     protected void displayNotAValidInput() {
-        System.out.println("Not a valid input");
+        System.out.println("Not a valid input or sold out.");
     }
 
     protected String formatCurrency(BigDecimal runningTotal) {
