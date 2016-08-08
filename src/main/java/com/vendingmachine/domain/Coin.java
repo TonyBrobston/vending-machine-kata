@@ -1,13 +1,12 @@
 package com.vendingmachine.domain;
 
 
-import com.vendingmachine.utils.converter.CoinConverter;
-
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
 import static com.vendingmachine.constants.Coins.*;
+import static com.vendingmachine.utils.converter.CoinConverter.toCoin;
 
 public class Coin {
     private final BigDecimal value;
@@ -17,7 +16,7 @@ public class Coin {
     }
 
     public Coin(final String value) {
-        this.value = CoinConverter.toCoin(value);
+        this.value = toCoin(value);
     }
 
     public boolean isValidForUse() {

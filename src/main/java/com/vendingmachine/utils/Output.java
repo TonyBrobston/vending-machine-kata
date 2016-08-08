@@ -4,6 +4,8 @@ import com.vendingmachine.domain.Product;
 
 import java.math.BigDecimal;
 
+import static com.vendingmachine.utils.Formatter.toCurrency;
+
 public final class Output {
     public static void displayWelcome() {
         System.out.println("Welcome to this super awesome Vending Machine application");
@@ -18,7 +20,7 @@ public final class Output {
     }
 
     public static void displayCurrentAmount(BigDecimal runningTotal) {
-        System.out.println("Current amount: " + Formatter.toCurrency(runningTotal));
+        System.out.println("Current amount: " + toCurrency(runningTotal));
     }
 
     public static void displayProductDispensed() {
@@ -26,11 +28,11 @@ public final class Output {
     }
 
     public static void displayNotEnoughMoney(Product product) {
-        System.out.println("Not enough money, price is " + Formatter.toCurrency(product.getValue()));
+        System.out.println("Not enough money, price is " + toCurrency(product.getValue()));
     }
 
     public static void displayCoinReturn(BigDecimal value) {
-        System.out.println("Coin return: " + Formatter.toCurrency(value));
+        System.out.println("Coin return: " + toCurrency(value));
     }
 
     public static void displayNotAValidInput() {

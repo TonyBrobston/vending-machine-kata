@@ -1,8 +1,8 @@
 package com.vendingmachine.domain;
 
-import com.vendingmachine.utils.converter.ProductConverter;
-
 import java.math.BigDecimal;
+
+import static com.vendingmachine.utils.converter.ProductConverter.toProduct;
 
 public class Product {
     private final BigDecimal value;
@@ -12,7 +12,7 @@ public class Product {
     }
 
     public Product(final String value) {
-        this.value = ProductConverter.toProduct(value);
+        this.value = toProduct(value);
     }
 
     public boolean isEnoughCoin(BigDecimal runningTotal) {

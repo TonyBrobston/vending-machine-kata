@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import java.math.BigDecimal;
 
 import static com.vendingmachine.constants.Products.*;
+import static com.vendingmachine.utils.converter.ProductConverter.toProduct;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(DataProviderRunner.class)
@@ -31,6 +32,6 @@ public class ProductConverterTest {
     @Test
     @UseDataProvider("toProductDataProvier")
     public void shouldConvertStringToBigDecimal(String entry, BigDecimal expected) {
-        assertEquals(expected, ProductConverter.toProduct(entry));
+        assertEquals(expected, toProduct(entry));
     }
 }

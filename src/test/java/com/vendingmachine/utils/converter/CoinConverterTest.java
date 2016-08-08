@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import java.math.BigDecimal;
 
 import static com.vendingmachine.constants.Coins.*;
+import static com.vendingmachine.utils.converter.CoinConverter.toCoin;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(DataProviderRunner.class)
@@ -39,6 +40,6 @@ public class CoinConverterTest {
     @Test
     @UseDataProvider("toCoinDataProvier")
     public void shouldConvertStringToBigDecimal(String entry, BigDecimal expected) {
-        assertEquals(expected, CoinConverter.toCoin(entry));
+        assertEquals(expected, toCoin(entry));
     }
 }
