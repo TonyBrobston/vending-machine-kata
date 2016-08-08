@@ -4,36 +4,36 @@ import com.vendingmachine.domain.Product;
 
 import java.math.BigDecimal;
 
-public class Output {
-    protected void displayWelcome() {
+public final class Output {
+    public static void displayWelcome() {
         System.out.println("Welcome to this super awesome Vending Machine application");
     }
 
-    protected void displayCoinAndProductOptions() {
+    public static void displayCoinAndProductOptions() {
         System.out.println("Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.");
     }
 
-    protected void askForNextCoin() {
+    public static void askForNextCoin() {
         System.out.print("Insert coin, select a product, or return: ");
     }
 
-    protected void displayCurrentAmount(BigDecimal runningTotal) {
+    public static void displayCurrentAmount(BigDecimal runningTotal) {
         System.out.println("Current amount: " + Formatter.toCurrency(runningTotal));
     }
 
-    protected void displayProductDispensed() {
+    public static void displayProductDispensed() {
         System.out.println("Product dispensed, thank you");
     }
 
-    protected void displayNotEnoughMoney(Product product) {
+    public static void displayNotEnoughMoney(Product product) {
         System.out.println("Not enough money, price is " + Formatter.toCurrency(product.getValue()));
     }
 
-    protected void displayCoinReturn(BigDecimal value) {
+    public static void displayCoinReturn(BigDecimal value) {
         System.out.println("Coin return: " + Formatter.toCurrency(value));
     }
 
-    protected void displayNotAValidInput() {
+    public static void displayNotAValidInput() {
         System.out.println("Not a valid input or sold out.");
     }
 

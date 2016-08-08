@@ -7,7 +7,9 @@ import com.vendingmachine.utils.Validator;
 
 import java.math.BigDecimal;
 
-public class VendingMachineService extends Output {
+import static com.vendingmachine.utils.Output.*;
+
+public class VendingMachineService {
     private BigDecimal runningTotal = BigDecimal.ZERO;
 
     public void initialStartUp() {
