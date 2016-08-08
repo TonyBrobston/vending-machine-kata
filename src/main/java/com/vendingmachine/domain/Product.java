@@ -5,7 +5,15 @@ import com.vendingmachine.utils.converter.ProductConverter;
 import java.math.BigDecimal;
 
 public class Product {
-    private BigDecimal value;
+    private final BigDecimal value;
+
+    public Product(final BigDecimal value) {
+        this.value = value;
+    }
+
+    public Product(final String value) {
+        this.value = ProductConverter.toProduct(value);
+    }
 
     public boolean isEnoughCoin(BigDecimal runningTotal) {
         if (runningTotal == null) {
@@ -14,17 +22,7 @@ public class Product {
         return runningTotal.compareTo(this.value) >= 0;
     }
 
-    public Product setValue(String value) {
-        this.value = ProductConverter.toProduct(value);
-        return this;
-    }
-
     public BigDecimal getValue() {
         return value;
-    }
-
-    public Product setValue(BigDecimal value) {
-        this.value = value;
-        return this;
     }
 }

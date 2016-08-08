@@ -96,7 +96,7 @@ public class VendingMachineServiceTest {
         Coin quarter = new Coin(QUARTER);
         vendingMachineService.inputCoin(quarter);
         vendingMachineService.inputCoin(quarter);
-        Product chips = new Product().setValue(CHIPS);
+        Product chips = new Product(CHIPS);
 
         vendingMachineService.inputProductAndDispense(chips);
 
@@ -110,7 +110,7 @@ public class VendingMachineServiceTest {
         VendingMachineService vendingMachineService = new VendingMachineService();
         Coin quarter = new Coin(QUARTER);
         vendingMachineService.inputCoin(quarter);
-        Product chips = new Product().setValue(CHIPS);
+        Product chips = new Product(CHIPS);
 
         vendingMachineService.inputProductAndDispense(chips);
 

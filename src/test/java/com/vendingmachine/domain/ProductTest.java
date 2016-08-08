@@ -25,7 +25,7 @@ public class ProductTest {
     @Test
     @UseDataProvider("productConverterDataProvider")
     public void shouldConvertStringsToBigDecimalInSetter(String in, BigDecimal out) {
-        assertEquals(out, new Product().setValue(in).getValue());
+        assertEquals(out, new Product(in).getValue());
     }
 
     @DataProvider
@@ -40,6 +40,6 @@ public class ProductTest {
     @Test
     @UseDataProvider("isEnoughCoinDataProvider")
     public void shouldPassIfIsEnoughCoinForProduct(BigDecimal runningTotal, BigDecimal value, boolean expected) {
-        assertEquals(expected, new Product().setValue(value).isEnoughCoin(runningTotal));
+        assertEquals(expected, new Product(value).isEnoughCoin(runningTotal));
     }
 }

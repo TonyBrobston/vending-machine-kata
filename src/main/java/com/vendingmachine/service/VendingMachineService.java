@@ -20,7 +20,7 @@ public class VendingMachineService extends Output {
         if (Validator.isACoin(value)) {
             inputCoin(new Coin(value));
         } else if (Validator.isAProduct(value)) {
-            inputProductAndDispense(new Product().setValue(value));
+            inputProductAndDispense(new Product(value));
         } else if (Validator.isReturn(value)) {
             returnCoins();
         } else {
