@@ -28,7 +28,7 @@ public class VendingMachineServiceTest {
 
     @Test
     public void shouldPrintInsertCoinIfInitialStartup() {
-        new VendingMachineService().initialStartUp();
+        new VendingMachineService();
 
         assertEquals("Welcome to this super awesome Vending Machine application\n" +
                 "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
@@ -41,7 +41,10 @@ public class VendingMachineServiceTest {
 
         new VendingMachineService().inputCoin(nickel);
 
-        assertEquals("Current amount: $0.05\n", byteArrayOutputStream.toString());
+        assertEquals("Welcome to this super awesome Vending Machine application\n" +
+                "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
+                "Insert coin, select a product, or return: " +
+                "Current amount: $0.05\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -54,7 +57,10 @@ public class VendingMachineServiceTest {
         vendingMachineService.inputCoin(nickel);
         vendingMachineService.inputCoin(quarter);
 
-        assertEquals("Current amount: $0.05\n" +
+        assertEquals("Welcome to this super awesome Vending Machine application\n" +
+                "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
+                "Insert coin, select a product, or return: " +
+                "Current amount: $0.05\n" +
                 "Current amount: $0.10\n" +
                 "Current amount: $0.35\n", byteArrayOutputStream.toString());
     }
@@ -68,7 +74,10 @@ public class VendingMachineServiceTest {
         vendingMachineService.inputCoin(nickel);
         vendingMachineService.inputCoin(penny);
 
-        assertEquals("Current amount: $0.05\n" +
+        assertEquals("Welcome to this super awesome Vending Machine application\n" +
+                "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
+                "Insert coin, select a product, or return: " +
+                "Current amount: $0.05\n" +
                 "Coin return: $0.01\n", byteArrayOutputStream.toString());
     }
 
@@ -78,7 +87,10 @@ public class VendingMachineServiceTest {
 
         new VendingMachineService().inputCoin(quarter);
 
-        assertEquals("Current amount: $0.25\n", byteArrayOutputStream.toString());
+        assertEquals("Welcome to this super awesome Vending Machine application\n" +
+                "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
+                "Insert coin, select a product, or return: " +
+                "Current amount: $0.25\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -87,7 +99,10 @@ public class VendingMachineServiceTest {
 
         new VendingMachineService().inputCoin(penny);
 
-        assertEquals("Coin return: $0.01\n", byteArrayOutputStream.toString());
+        assertEquals("Welcome to this super awesome Vending Machine application\n" +
+                "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
+                "Insert coin, select a product, or return: " +
+                "Coin return: $0.01\n", byteArrayOutputStream.toString());
     }
 
     @Test
@@ -100,7 +115,10 @@ public class VendingMachineServiceTest {
 
         vendingMachineService.inputProductAndDispense(chips);
 
-        assertEquals("Current amount: $0.25\n" +
+        assertEquals("Welcome to this super awesome Vending Machine application\n" +
+                "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
+                "Insert coin, select a product, or return: " +
+                "Current amount: $0.25\n" +
                 "Current amount: $0.50\n" +
                 "Product dispensed, thank you\nCurrent amount: $0.00\n", byteArrayOutputStream.toString());
     }
@@ -114,7 +132,10 @@ public class VendingMachineServiceTest {
 
         vendingMachineService.inputProductAndDispense(chips);
 
-        assertEquals("Current amount: $0.25\n" +
+        assertEquals("Welcome to this super awesome Vending Machine application\n" +
+                "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
+                "Insert coin, select a product, or return: " +
+                "Current amount: $0.25\n" +
                 "Not enough money, price is $0.50\n", byteArrayOutputStream.toString());
     }
 
@@ -127,7 +148,10 @@ public class VendingMachineServiceTest {
 
         vendingMachineService.input("chips");
 
-        assertEquals("Current amount: $0.25\nInsert coin, select a product, or return: " +
+        assertEquals("Welcome to this super awesome Vending Machine application\n" +
+                "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
+                "Insert coin, select a product, or return: " +
+                "Current amount: $0.25\nInsert coin, select a product, or return: " +
                 "Current amount: $0.50\nInsert coin, select a product, or return: " +
                 "Current amount: $0.75\nInsert coin, select a product, or return: " +
                 "Product dispensed, thank you\nCoin return: $0.25\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
@@ -143,7 +167,10 @@ public class VendingMachineServiceTest {
 
         vendingMachineService.input("quarter");
 
-        assertEquals("Current amount: $0.25\nInsert coin, select a product, or return: " +
+        assertEquals("Welcome to this super awesome Vending Machine application\n" +
+                "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
+                "Insert coin, select a product, or return: " +
+                "Current amount: $0.25\nInsert coin, select a product, or return: " +
                 "Current amount: $0.50\nInsert coin, select a product, or return: " +
                 "Current amount: $0.75\nInsert coin, select a product, or return: " +
                 "Product dispensed, thank you\nCoin return: $0.25\nInsert coin, select a product, or return: " +
@@ -159,7 +186,10 @@ public class VendingMachineServiceTest {
 
         vendingMachineService.input("Return");
 
-        assertEquals("Current amount: $0.10\nInsert coin, select a product, or return: " +
+        assertEquals("Welcome to this super awesome Vending Machine application\n" +
+                "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
+                "Insert coin, select a product, or return: " +
+                "Current amount: $0.10\nInsert coin, select a product, or return: " +
                 "Current amount: $0.20\nInsert coin, select a product, or return: " +
                 "Current amount: $0.30\nInsert coin, select a product, or return: " +
                 "Coin return: $0.30\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
@@ -172,7 +202,10 @@ public class VendingMachineServiceTest {
 
         vendingMachineService.input("peanuts");
 
-        assertEquals("Current amount: $0.10\nInsert coin, select a product, or return: " +
+        assertEquals("Welcome to this super awesome Vending Machine application\n" +
+                "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
+                "Insert coin, select a product, or return: " +
+                "Current amount: $0.10\nInsert coin, select a product, or return: " +
                 "Not a valid input or sold out.\nCurrent amount: $0.10\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
     }
 
@@ -182,6 +215,9 @@ public class VendingMachineServiceTest {
 
         vendingMachineService.input("peanuts");
 
-        assertEquals("Not a valid input or sold out.\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
+        assertEquals("Welcome to this super awesome Vending Machine application\n" +
+                "Coin options: NICKEL, DIME, QUARTER. Product options: COLA, CHIPS, CANDY. Other commands: RETURN, END.\n" +
+                "Insert coin, select a product, or return: " +
+                "Not a valid input or sold out.\nInsert coin, select a product, or return: ", byteArrayOutputStream.toString());
     }
 }

@@ -13,7 +13,6 @@ public class VendingMachine {
     }
 
     private static void startVendingMachineService(Scanner scanner, VendingMachineService vendingMachineService, boolean continueLoop) {
-        vendingMachineService.initialStartUp();
         do {
             String value = scanner.next();
             if ("end".equalsIgnoreCase(value)) {

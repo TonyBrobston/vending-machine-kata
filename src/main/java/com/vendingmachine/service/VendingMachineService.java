@@ -11,7 +11,7 @@ import static com.vendingmachine.utils.Validator.*;
 public class VendingMachineService {
     private BigDecimal runningTotal = BigDecimal.ZERO;
 
-    public void initialStartUp() {
+    public VendingMachineService() {
         displayWelcome();
         displayCoinAndProductOptions();
         askForNextCoin();
