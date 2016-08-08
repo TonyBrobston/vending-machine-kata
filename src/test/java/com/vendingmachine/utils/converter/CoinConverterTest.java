@@ -3,14 +3,13 @@ package com.vendingmachine.utils.converter;
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
-import com.vendingmachine.utils.converter.CoinConverter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.assertEquals;
 import static com.vendingmachine.constants.Coins.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(DataProviderRunner.class)
 public class CoinConverterTest {

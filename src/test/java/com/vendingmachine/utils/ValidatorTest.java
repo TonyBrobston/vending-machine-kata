@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 
 import java.math.BigDecimal;
 
+import static com.vendingmachine.utils.Validator.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(DataProviderRunner.class)
@@ -24,7 +25,7 @@ public class ValidatorTest {
     @Test
     @UseDataProvider("coinDataProvider")
     public void shouldPassIfIsValidCoin(String value, boolean expected) {
-        assertEquals(expected, Validator.isACoin(value));
+        assertEquals(expected, isACoin(value));
     }
 
     @DataProvider
@@ -39,7 +40,7 @@ public class ValidatorTest {
     @Test
     @UseDataProvider("productDataProvider")
     public void shouldPassIfIsValidProduct(String value, boolean expected) {
-        assertEquals(expected, Validator.isAProduct(value));
+        assertEquals(expected, isAProduct(value));
     }
 
     @DataProvider
@@ -55,7 +56,7 @@ public class ValidatorTest {
     @Test
     @UseDataProvider("returnDataProvider")
     public void shouldPassIfIsReturn(String value, boolean expected) {
-        assertEquals(expected, Validator.isReturn(value));
+        assertEquals(expected, isReturn(value));
     }
 
     @DataProvider
@@ -70,7 +71,7 @@ public class ValidatorTest {
     @Test
     @UseDataProvider("isGreaterThanZeroDataProvider")
     public void shouldPassIfIsGreaterThanZero(BigDecimal bigDecimal, boolean expected) {
-        assertEquals(expected, Validator.isGreaterThanZero(bigDecimal));
+        assertEquals(expected, isGreaterThanZero(bigDecimal));
     }
 
 

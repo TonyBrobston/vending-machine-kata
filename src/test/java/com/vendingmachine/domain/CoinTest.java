@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.*;
 import static com.vendingmachine.constants.Coins.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(DataProviderRunner.class)
 public class CoinTest {

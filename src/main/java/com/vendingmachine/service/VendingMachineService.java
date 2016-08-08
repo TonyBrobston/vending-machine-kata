@@ -2,12 +2,11 @@ package com.vendingmachine.service;
 
 import com.vendingmachine.domain.Coin;
 import com.vendingmachine.domain.Product;
-import com.vendingmachine.utils.Output;
-import com.vendingmachine.utils.Validator;
 
 import java.math.BigDecimal;
 
 import static com.vendingmachine.utils.Output.*;
+import static com.vendingmachine.utils.Validator.*;
 
 public class VendingMachineService {
     private BigDecimal runningTotal = BigDecimal.ZERO;
@@ -19,15 +18,15 @@ public class VendingMachineService {
     }
 
     public void input(String value) {
-        if (Validator.isACoin(value)) {
+        if (isACoin(value)) {
             inputCoin(new Coin(value));
-        } else if (Validator.isAProduct(value)) {
+        } else if (isAProduct(value)) {
             inputProductAndDispense(new Product(value));
-        } else if (Validator.isReturn(value)) {
+        } else if (isReturn(value)) {
             returnCoins();
         } else {
             displayNotAValidInput();
-            if (Validator.isGreaterThanZero(runningTotal)) {
+            if (isGreaterThanZero(runningTotal)) {
                 displayCurrentAmount(runningTotal);
             }
         }
@@ -54,7 +53,7 @@ public class VendingMachineService {
     private void dispenseProduct(Product product) {
         displayProductDispensed();
         runningTotal = runningTotal.subtract(product.getValue());
-        if (Validator.isGreaterThanZero(runningTotal)) {
+        if (isGreaterThanZero(runningTotal)) {
             returnCoins();
         } else {
             displayCurrentAmount(runningTotal);

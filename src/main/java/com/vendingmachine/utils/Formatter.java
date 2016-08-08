@@ -1,7 +1,5 @@
 package com.vendingmachine.utils;
 
-import sun.misc.FormattedFloatingDecimal;
-
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 
