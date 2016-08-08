@@ -32,6 +32,6 @@ public class ProductConverterTest {
     @Test
     @UseDataProvider("toProductDataProvier")
     public void shouldConvertStringToBigDecimal(String entry, BigDecimal expected) {
-        assertEquals(expected, new ProductConverter().toProduct(entry));
+        assertEquals(expected, ProductConverter.toProduct(entry));
     }
 }

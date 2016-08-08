@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 import static com.vendingmachine.constants.Products.*;
 
-public class ProductConverter {
-    public BigDecimal toProduct(String entry) {
+public final class ProductConverter {
+    public static BigDecimal toProduct(String entry) {
         if ("cola".equalsIgnoreCase(entry)) {
             return COLA;
         } else if ("chips".equalsIgnoreCase(entry)) {
@@ -16,4 +16,6 @@ public class ProductConverter {
             return INVALID;
         }
     }
+
+    private ProductConverter() { }
 }

@@ -3,7 +3,6 @@ package com.vendingmachine.utils;
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
-import com.vendingmachine.utils.Validator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -25,7 +24,7 @@ public class ValidatorTest {
     @Test
     @UseDataProvider("coinDataProvider")
     public void shouldPassIfIsValidCoin(String value, boolean expected) {
-        assertEquals(expected, new Validator().isACoin(value));
+        assertEquals(expected, Validator.isACoin(value));
     }
 
     @DataProvider
@@ -40,7 +39,7 @@ public class ValidatorTest {
     @Test
     @UseDataProvider("productDataProvider")
     public void shouldPassIfIsValidProduct(String value, boolean expected) {
-        assertEquals(expected, new Validator().isAProduct(value));
+        assertEquals(expected, Validator.isAProduct(value));
     }
 
     @DataProvider
@@ -56,7 +55,7 @@ public class ValidatorTest {
     @Test
     @UseDataProvider("returnDataProvider")
     public void shouldPassIfIsReturn(String value, boolean expected) {
-        assertEquals(expected, new Validator().isReturn(value));
+        assertEquals(expected, Validator.isReturn(value));
     }
 
     @DataProvider
@@ -71,7 +70,7 @@ public class ValidatorTest {
     @Test
     @UseDataProvider("isGreaterThanZeroDataProvider")
     public void shouldPassIfIsGreaterThanZero(BigDecimal bigDecimal, boolean expected) {
-        assertEquals(expected, new Validator().isGreaterThanZero(bigDecimal));
+        assertEquals(expected, Validator.isGreaterThanZero(bigDecimal));
     }
 
 

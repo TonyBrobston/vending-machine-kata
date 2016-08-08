@@ -18,7 +18,7 @@ public class Output {
     }
 
     protected void displayCurrentAmount(BigDecimal runningTotal) {
-        System.out.println("Current amount: " + new Formatter().toCurrency(runningTotal));
+        System.out.println("Current amount: " + Formatter.toCurrency(runningTotal));
     }
 
     protected void displayProductDispensed() {
@@ -26,11 +26,11 @@ public class Output {
     }
 
     protected void displayNotEnoughMoney(Product product) {
-        System.out.println("Not enough money, price is " + new Formatter().toCurrency(product.getValue()));
+        System.out.println("Not enough money, price is " + Formatter.toCurrency(product.getValue()));
     }
 
     protected void displayCoinReturn(BigDecimal value) {
-        System.out.println("Coin return: " + new Formatter().toCurrency(value));
+        System.out.println("Coin return: " + Formatter.toCurrency(value));
     }
 
     protected void displayNotAValidInput() {

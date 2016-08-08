@@ -1,5 +1,6 @@
 package com.vendingmachine.domain;
 
+
 import com.vendingmachine.utils.converter.CoinConverter;
 
 import java.math.BigDecimal;
@@ -17,7 +18,7 @@ public class Coin {
     }
 
     public Coin setValue(String value) {
-        this.value = new CoinConverter().toCoin(value);
+        this.value = CoinConverter.toCoin(value);
         return this;
     }
 

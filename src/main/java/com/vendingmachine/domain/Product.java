@@ -15,7 +15,7 @@ public class Product {
     }
 
     public Product setValue(String value) {
-        this.value = new ProductConverter().toProduct(value);
+        this.value = ProductConverter.toProduct(value);
         return this;
     }
 

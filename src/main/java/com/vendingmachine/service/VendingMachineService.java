@@ -17,15 +17,15 @@ public class VendingMachineService extends Output {
     }
 
     public void input(String value) {
-        if (new Validator().isACoin(value)) {
+        if (Validator.isACoin(value)) {
             inputCoin(new Coin().setValue(value));
-        } else if (new Validator().isAProduct(value)) {
+        } else if (Validator.isAProduct(value)) {
             inputProductAndDispense(new Product().setValue(value));
-        } else if (new Validator().isReturn(value)) {
+        } else if (Validator.isReturn(value)) {
             returnCoins();
         } else {
             displayNotAValidInput();
-            if (new Validator().isGreaterThanZero(runningTotal)) {
+            if (Validator.isGreaterThanZero(runningTotal)) {
                 displayCurrentAmount(runningTotal);
             }
         }
@@ -52,7 +52,7 @@ public class VendingMachineService extends Output {
     private void dispenseProduct(Product product) {
         displayProductDispensed();
         runningTotal = runningTotal.subtract(product.getValue());
-        if (new Validator().isGreaterThanZero(runningTotal)) {
+        if (Validator.isGreaterThanZero(runningTotal)) {
             returnCoins();
         } else {
             displayCurrentAmount(runningTotal);

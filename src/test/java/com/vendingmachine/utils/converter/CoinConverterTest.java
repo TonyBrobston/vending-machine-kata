@@ -40,6 +40,6 @@ public class CoinConverterTest {
     @Test
     @UseDataProvider("toCoinDataProvier")
     public void shouldConvertStringToBigDecimal(String entry, BigDecimal expected) {
-        assertEquals(expected, new CoinConverter().toCoin(entry));
+        assertEquals(expected, CoinConverter.toCoin(entry));
     }
 }

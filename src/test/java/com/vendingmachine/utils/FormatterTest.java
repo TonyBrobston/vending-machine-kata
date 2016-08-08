@@ -10,6 +10,6 @@ import static org.junit.Assert.assertEquals;
 public class FormatterTest {
     @Test
     public void shouldFormatMoney() {
-        assertEquals("$13.37", new Formatter().toCurrency(new BigDecimal(13.37)));
+        assertEquals("$13.37", Formatter.toCurrency(new BigDecimal(13.37)));
     }
 }
