@@ -10,24 +10,22 @@ import java.util.List;
 import static com.vendingmachine.constants.Coins.*;
 
 public class Coin {
-    private BigDecimal value = BigDecimal.ZERO;
+    private final BigDecimal value;
+
+    public Coin(final BigDecimal value) {
+        this.value = value;
+    }
+
+    public Coin(final String value) {
+        this.value = CoinConverter.toCoin(value);
+    }
 
     public boolean isValidForUse() {
         List<BigDecimal> validCoins = Arrays.asList(NICKEL, DIME, QUARTER);
         return validCoins.contains(this.value);
     }
 
-    public Coin setValue(String value) {
-        this.value = CoinConverter.toCoin(value);
-        return this;
-    }
-
     public BigDecimal getValue() {
         return value;
-    }
-
-    public Coin setValue(BigDecimal value) {
-        this.value = value;
-        return this;
     }
 }

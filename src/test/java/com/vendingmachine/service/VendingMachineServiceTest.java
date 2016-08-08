@@ -37,7 +37,7 @@ public class VendingMachineServiceTest {
 
     @Test
     public void shouldPrintCurrentAmountFiveToConsole() {
-        Coin nickel = new Coin().setValue(NICKEL);
+        Coin nickel = new Coin(NICKEL);
 
         new VendingMachineService().inputCoin(nickel);
 
@@ -47,8 +47,8 @@ public class VendingMachineServiceTest {
     @Test
     public void shouldPrintCurrentAmountFiveCurrentAmountTenCurrentAmountThirtyFive() {
         VendingMachineService vendingMachineService = new VendingMachineService();
-        Coin nickel = new Coin().setValue(NICKEL);
-        Coin quarter = new Coin().setValue(QUARTER);
+        Coin nickel = new Coin(NICKEL);
+        Coin quarter = new Coin(QUARTER);
 
         vendingMachineService.inputCoin(nickel);
         vendingMachineService.inputCoin(nickel);
@@ -62,8 +62,8 @@ public class VendingMachineServiceTest {
     @Test
     public void shouldPrintCurrentAmountFiveCoinReturnOne() {
         VendingMachineService vendingMachineService = new VendingMachineService();
-        Coin nickel = new Coin().setValue(NICKEL);
-        Coin penny = new Coin().setValue(PENNY);
+        Coin nickel = new Coin(NICKEL);
+        Coin penny = new Coin(PENNY);
 
         vendingMachineService.inputCoin(nickel);
         vendingMachineService.inputCoin(penny);
@@ -74,7 +74,7 @@ public class VendingMachineServiceTest {
 
     @Test
     public void shouldPrintCurrentAmountTwentyFive() {
-        Coin quarter = new Coin().setValue(QUARTER);
+        Coin quarter = new Coin(QUARTER);
 
         new VendingMachineService().inputCoin(quarter);
 
@@ -83,7 +83,7 @@ public class VendingMachineServiceTest {
 
     @Test
     public void shouldPrintCoinReturnOne() {
-        Coin penny = new Coin().setValue(PENNY);
+        Coin penny = new Coin(PENNY);
 
         new VendingMachineService().inputCoin(penny);
 
@@ -93,7 +93,7 @@ public class VendingMachineServiceTest {
     @Test
     public void shouldTakeTwoQuartersAndDispenseChips() {
         VendingMachineService vendingMachineService = new VendingMachineService();
-        Coin quarter = new Coin().setValue(QUARTER);
+        Coin quarter = new Coin(QUARTER);
         vendingMachineService.inputCoin(quarter);
         vendingMachineService.inputCoin(quarter);
         Product chips = new Product().setValue(CHIPS);
@@ -108,7 +108,7 @@ public class VendingMachineServiceTest {
     @Test
     public void shouldTakeOneQuartersAndAttemptToDispenseChips() {
         VendingMachineService vendingMachineService = new VendingMachineService();
-        Coin quarter = new Coin().setValue(QUARTER);
+        Coin quarter = new Coin(QUARTER);
         vendingMachineService.inputCoin(quarter);
         Product chips = new Product().setValue(CHIPS);
 

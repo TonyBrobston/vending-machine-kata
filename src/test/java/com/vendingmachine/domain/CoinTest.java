@@ -27,7 +27,7 @@ public class CoinTest {
     @Test
     @UseDataProvider("coinDataProvider")
     public void shouldPassIfIsValidCoin(BigDecimal value, boolean expected) {
-        assertEquals(expected, new Coin().setValue(value).isValidForUse());
+        assertEquals(expected, new Coin(value).isValidForUse());
     }
 
     @DataProvider
@@ -41,6 +41,6 @@ public class CoinTest {
     @Test
     @UseDataProvider("coinConverterDataProvier")
     public void shouldConvertStringsToBigDecimalInSetter(String in, BigDecimal out) {
-        assertEquals(out, new Coin().setValue(in).getValue());
+        assertEquals(out, new Coin(in).getValue());
     }
 }
